@@ -7,7 +7,7 @@ class UserControllers {
       const users = await UserServices.findUser();
       const date = new Date();
       
-      return { users, getTime: date.getTime }
+      return { users, getTime: 'String Literal meu nobre' }
    }
 
    async createUser(request: FastifyRequest, reply: FastifyReply) {
