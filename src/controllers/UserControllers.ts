@@ -5,7 +5,9 @@ import { FastifyReply, FastifyRequest } from "fastify";
 class UserControllers {
    async findAllUsers(request: FastifyRequest, reply: FastifyReply) {
       const users = await UserServices.findUser();
-      return { users }
+      const date = new Date();
+      
+      return { users, getTime: date.getTime }
    }
 
    async createUser(request: FastifyRequest, reply: FastifyReply) {
