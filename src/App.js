@@ -7,6 +7,7 @@ class App {
         this.middlewares();
         this.routes();
     }
+    
     middlewares() {
         this.app.use(express.json())
         this.app.use(express.urlencoded({ extended: true }))
