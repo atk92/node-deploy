@@ -1,5 +1,5 @@
 const express = require('express');
-const homeRoutes = require('./src/routes/HomeRoutes');
+const homeRoutes = require('./routes/HomeRoutes');
 
 class App {
     constructor() {
