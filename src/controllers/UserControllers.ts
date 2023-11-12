@@ -3,22 +3,23 @@ import UserServices from "../services/UserServices";
 import { FastifyReply, FastifyRequest } from "fastify";
 
 class UserControllers {
+   
+   async createUser(request: FastifyRequest, reply: FastifyReply) {
+      const createUserSchema = z.object({
+         name: z.string(),
+         email: z.string().email(),
+      });
+      
+      const { name, email, password } = createUserSchema.parse(request.body);
+      await UserServices.createUser({ name, email, password });
+      return reply.status(201).send({created: {msg: `Welcome ${name}`}});
+   }
+
    async findAllUsers(request: FastifyRequest, reply: FastifyReply) {
       const users = await UserServices.findUser();
       const date = new Date();
       
       return { users, getTime: 'String Literal meu nobre' }
-   }
-
-   async createUser(request: FastifyRequest, reply: FastifyReply) {
-      const createUserSchema = z.object({
-         nome: z.string(),
-         email: z.string().email(),
-      });
-
-      const { nome, email } = createUserSchema.parse(request.body);
-      await UserServices.createUser({ nome, email });
-      return reply.status(201).send();
    }
 }
 
