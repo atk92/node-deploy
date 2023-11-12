@@ -8,18 +8,12 @@ interface DataRecevedForCreatedNewUser {
 
 class UserServices {
    async createUser({ nome, email, password }: DataRecevedForCreatedNewUser) {
-      await prismaClient.user.create({
-         data: {
-            nome: nome,
-            email: email,
-            password: password
-         },
-      });
-      return true;
+
+      return { nome, email, password };
    }
 
    async findUser() {
-      return await prismaClient.user.findMany();
+      return { ok: 'true' }
    }
 }
 

@@ -16,7 +16,7 @@ class UserControllers {
    }
 
    async findAllUsers(request: FastifyRequest, reply: FastifyReply) {
-      const users = await UserServices.findUser();
+      const users = [{}]
       const date = new Date();
       
       return { users, getTime: 'String Literal meu nobre' }
