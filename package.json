@@ -8,7 +8,7 @@
    },
    "scripts": {
       "dev": "node server.js -w",
-      "build": "npm ci",
+      "build": "npm i",
       "start": "node server.js"
    },
    "author": "",
